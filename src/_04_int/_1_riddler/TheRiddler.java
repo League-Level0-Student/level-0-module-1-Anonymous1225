@@ -16,7 +16,7 @@ int score = 0;
 		// 3. Ask the user a riddle. Here are some ideas: bit.ly/some-riddles
 String awnser1 = JOptionPane.showInputDialog(null, "I have no lung but I need to breath.=, if I touch water I die, what am I?");
 		// 4. If they got the answer right, pop up "correct!" and increase the score by one
-if (awnser1.equals("fire")) {
+if (awnser1.equals("Fire")) {
 	JOptionPane.showMessageDialog(null, "DING! Correct!");
 	score +=1;
 }
@@ -52,6 +52,7 @@ else {
 	score -=1;
 
 }
+System.out.println(score);
 // 5. Otherwise, say "wrong" and tell them the answer
 
 		// 6. Add some more riddles

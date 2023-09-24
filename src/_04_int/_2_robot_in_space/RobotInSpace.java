@@ -5,6 +5,7 @@ package _04_int._2_robot_in_space;
 
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.util.Random;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -15,7 +16,7 @@ import org.jointheleague.graphical.robot.Robot;
 
 public class RobotInSpace extends KeyboardAdapter {
 
-	Robot rob = new Robot("mini");
+	Robot terry = new Robot("mini");
 	private boolean movingForward = false;
 	private boolean movingBackward = false;
 	private boolean turningLeft = false;
@@ -30,44 +31,55 @@ public class RobotInSpace extends KeyboardAdapter {
 	 */
 
 	private void moveRobot(int keyPressed) {
+		int annoy = new Random ().nextInt(300)+-150;
 		// 2. Print out the keyPressed variable and write down the numbers for
 		// each arrow key
-		
 		// 3. If the up arrow is pressed, move the Robot up the screen.
-		
+		if(keyPressed == 38) {
+			terry.setAngle(0);
+
+		}
 		// 4. If the down arrow is pressed, move the Robot down.
-		
+		if(keyPressed == 40) {
+			terry.setAngle(180);
+
+		}
+		if(keyPressed == 37) {
+			terry.setAngle(270);
+
+		}
+		if(keyPressed == 39) {
+			terry.setAngle(90);
+
+		}
 		// 5. If the left arrow is pressed, make the Robot go left.
 		
 		// 6. If right is pressed, move the Robot right.
 		
-		// 7. Run your program and move the Robot to R2-D2 for a surprise!
-		
-	}
+		// 7. Run your program and move the Robot to R2-D2 for a surprise!	
+		terry.move(annoy);
+		}
+
+
 
 	private void checkIfR2D2Found() {
-		int robotLocationX = rob.getX();
-		int robotLocationY = rob.getY();
-
+		int robotLocationX = terry.getX();
+		int robotLocationY = terry.getY();
 		if (robotLocationX <= 7300 && robotLocationX >= 720 && robotLocationY >= 150 && robotLocationY <= 160)
 			playEureka();
 	}
-
 	public static void main(String[] args) {
 		new RobotInSpace().controlTheRobot();
 	}
-
 	private void controlTheRobot() {
-		rob.addKeyboardAdapter(this);
+	terry.addKeyboardAdapter(this);
 		Robot.setWindowImage("planet.jpg");
-		rob.penUp();
-		rob.setSpeed(10);
+		terry.penUp();
+		terry.setSpeed(10);
 	}
-
 	@Override
 	public void run() {
 		while (!Thread.currentThread().isInterrupted()) {
-			
 			if (movingForward && !movingBackward) {
 				moveRobot(KeyEvent.VK_UP);
 			} else if (movingBackward && !movingForward) {
