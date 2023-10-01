@@ -21,7 +21,6 @@ public class RobotInSpace extends KeyboardAdapter {
 	private boolean movingBackward = false;
 	private boolean turningLeft = false;
 	private boolean turningRight = false;
-
 	/*
 	 * Make the Robot move around the screen when the arrow keys are pressed...
 	 * 
