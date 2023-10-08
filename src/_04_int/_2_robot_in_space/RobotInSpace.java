@@ -33,6 +33,7 @@ public class RobotInSpace extends KeyboardAdapter {
 		int annoy = new Random ().nextInt(300)+-150;
 		// 2. Print out the keyPressed variable and write down the numbers for
 		// each arrow key
+
 		// 3. If the up arrow is pressed, move the Robot up the screen.
 		if(keyPressed == 38) {
 			terry.setAngle(0);
